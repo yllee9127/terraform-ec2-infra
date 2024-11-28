@@ -8,35 +8,35 @@ data "aws_ami" "amazon2023" {
   owners = ["amazon"]
 }
 
-#data "aws_vpc" "selected" {
-#  filter {
-#    name = "tag:Name"
-#    values = ["yl-vpc*"]
-#  }
+data "aws_vpc" "selected" {
+  filter {
+    name = "tag:Name"
+    values = ["yl-vpc*"]
+  }
   #default = true
-#}
+}
 
-#data "aws_subnets" "public" {
-#  filter {
-#    name = "vpc-id"
-#    values = [data.aws_vpc.selected.id]
-#  }
+data "aws_subnets" "public" {
+  filter {
+    name = "vpc-id"
+    values = [data.aws_vpc.selected.id]
+  }
 
-#  filter {
-#    name   = "tag:Name"
-#    values = ["yl-vpc-subnet-public*"]
-#  }
-#}
+  filter {
+    name   = "tag:Name"
+    values = ["yl-vpc-subnet-public*"]
+  }
+}
 
-#data "aws_subnets" "private" {
-#  filter {
-#    name = "vpc-id"
-#    values = [data.aws_vpc.selected.id]
-#  }
+data "aws_subnets" "private" {
+  filter {
+    name = "vpc-id"
+    values = [data.aws_vpc.selected.id]
+  }
 
-#  filter {
-#    name   = "tag:Name"
-#    values = ["yl-vpc-subnet-private*"]
-#  }
-#}
+  filter {
+    name   = "tag:Name"
+    values = ["yl-vpc-subnet-private*"]
+  }
+}
 
